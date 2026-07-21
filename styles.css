@@ -2653,10 +2653,12 @@ footer > p:last-child {
   }
 
   .journey-visual {
-    z-index: 5;
-    top: 76px;
-    height: 51svh;
-    min-height: 390px;
+    position: relative;
+    z-index: 1;
+    top: auto;
+    height: clamp(500px, 68svh, 620px);
+    min-height: 500px;
+    margin-bottom: 14px;
     border-radius: 26px;
   }
 
@@ -2764,10 +2766,18 @@ footer > p:last-child {
   }
 
   .journey-step {
-    min-height: 68svh;
-    grid-template-columns: 35px 1fr;
-    gap: 8px;
-    padding: 80px 0;
+    min-height: 0;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 64px 0;
+    border-top: 1px solid rgb(23 24 21 / 12%);
+    opacity: 1;
+    transform: none;
+  }
+
+  .journey-step:first-child {
+    border-top: 0;
   }
 
   .journey-step h3 {
@@ -2878,6 +2888,34 @@ footer > p:last-child {
 }
 
 @media (max-width: 480px) {
+  .journey-visual {
+    height: 570px;
+    min-height: 570px;
+  }
+
+  .phone-stage {
+    inset: 24px 18px 68px;
+  }
+
+  .mission-countdown-card,
+  .retry-alarm-card {
+    width: min(100%, 300px);
+    padding: 16px;
+  }
+
+  .mission-countdown-dial {
+    width: 112px;
+  }
+
+  .mission-countdown-dial strong {
+    font-size: 34px;
+  }
+
+  .journey-step {
+    grid-template-columns: 28px minmax(0, 1fr);
+    padding: 52px 0;
+  }
+
   .preorder-dialog {
     width: calc(100vw - 28px);
   }
