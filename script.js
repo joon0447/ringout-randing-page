@@ -176,6 +176,10 @@ const sendPreorderEvent = async (payload) => {
   return { local: false };
 };
 
+void sendPreorderEvent(
+  createPreorderPayload("page_view", { buttonLocation: "page_load" }),
+).catch(() => {});
+
 const resetPreorderDialog = () => {
   preorderForm?.reset();
   preorderEmail?.removeAttribute("aria-invalid");
