@@ -120,7 +120,15 @@ img {
   letter-spacing: -0.05em;
 }
 
-.brand-mark {
+img.brand-mark {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.brand-footer .brand-mark {
   position: relative;
   width: 28px;
   height: 28px;
@@ -130,7 +138,7 @@ img {
   border-radius: 50%;
 }
 
-.brand-mark::after {
+.brand-footer .brand-mark::after {
   content: "";
   position: absolute;
   right: -8px;
@@ -142,7 +150,7 @@ img {
   transform: rotate(48deg);
 }
 
-.brand-mark i {
+.brand-footer .brand-mark i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -2613,9 +2621,13 @@ footer {
     font-size: 17px;
   }
 
-  .brand-mark {
+  img.brand-mark,
+  .brand-footer .brand-mark {
     width: 24px;
     height: 24px;
+  }
+
+  .brand-footer .brand-mark {
     border-width: 4px;
   }
 
