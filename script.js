@@ -1,19 +1,9 @@
-document.documentElement.classList.add("js");
+const root = document.documentElement;
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const progressBar = document.querySelector(".scroll-progress span");
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
-const journeyVisual = document.querySelector(".journey-visual");
-const journeySteps = [...document.querySelectorAll(".journey-step")];
-const visualStepNumber = document.querySelector(".visual-caption b");
-const visualCaption = document.querySelector(".visual-caption p");
-const captions = [
-  "알람, 제한 시간, 목표 지점을 설정해요.",
-  "알람을 끄면 목표 지점 미션이 시작돼요.",
-  "시간 안에 도착하지 못하면 알람이 다시 울려요.",
-  "목표 지점 반경에 들어오면 오늘의 미션 완료.",
-];
 
 let ticking = false;
 
@@ -21,8 +11,10 @@ const updateScrollState = () => {
   const scrollTop = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   const pageProgress = maxScroll > 0 ? scrollTop / maxScroll : 0;
-  progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, pageProgress))})`;
-  header.classList.toggle("is-scrolled", scrollTop > 20);
+  if (progressBar) {
+    progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, pageProgress))})`;
+  }
+  if (header) header.classList.toggle("is-scrolled", scrollTop > 20);
 
   if (!prefersReducedMotion && hero) {
     const heroProgress = Math.min(1, Math.max(0, scrollTop / Math.max(hero.offsetHeight, 1)));
@@ -62,28 +54,6 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const setJourneyStep = (step) => {
-  journeyVisual.dataset.activeStep = String(step);
-  journeySteps.forEach((item) => item.classList.toggle("is-active", Number(item.dataset.step) === step));
-  visualStepNumber.textContent = String(step + 1).padStart(2, "0");
-  visualCaption.textContent = captions[step];
-};
-
-if (journeyVisual && "IntersectionObserver" in window) {
-  const stepObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (visible) setJourneyStep(Number(visible.target.dataset.step));
-    },
-    { threshold: [0.25, 0.45, 0.65], rootMargin: "-25% 0px -35% 0px" },
-  );
-
-  journeySteps.forEach((step) => stepObserver.observe(step));
-}
-
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
     const target = document.querySelector(link.getAttribute("href"));
@@ -92,5 +62,10 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     window.setTimeout(() => target.focus({ preventScroll: true }), prefersReducedMotion ? 0 : 650);
   });
 });
+
+root.classList.add("js-ready");
+window.setTimeout(() => {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}, 2200);
 
 updateScrollState();
