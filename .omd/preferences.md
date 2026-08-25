@@ -34,3 +34,18 @@ source_context: "styles.css"
 ```
 
 Header containers should use narrower outer gutters on wide screens.
+
+## 2026-08-25T10:42:29.000Z — hero-uses-supplied-alarm-screen-image
+
+```omd-meta
+id: pref_mt8jd2cg_52c7c8f2
+timestamp: 2026-08-25T10:42:29.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+Hero sections use the supplied alarm-setting screen image.
