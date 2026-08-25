@@ -64,3 +64,18 @@ source_context: "index.html, styles.css"
 ```
 
 Hero phone imagery has no overlapping caption or overlay.
+
+## 2026-08-25T11:04:20.000Z — app-store-text-only-google-play-icon
+
+```omd-meta
+id: pref_mt8k55sx_c8ec9a41
+timestamp: 2026-08-25T11:04:20.000Z
+scope: components.button
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Store CTAs use App Store text only and a Google Play icon.

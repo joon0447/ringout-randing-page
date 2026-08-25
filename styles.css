@@ -2810,10 +2810,10 @@ footer {
   letter-spacing: -0.02em;
 }
 
-.store-button small {
-  color: currentColor;
-  font-size: 11px;
-  font-weight: 750;
+.store-platform-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
 }
 
 .store-button-disabled {
@@ -3017,7 +3017,6 @@ footer {
 .final-cta .store-actions { margin-top: 26px; }
 .final-cta .store-button-disabled { color: var(--ink); border-color: rgb(23 24 21 / 32%); background: rgb(255 255 255 / 28%); }
 .platform-note { margin-bottom: 0 !important; font-weight: 800; }
-.store-status { margin-top: 14px !important; color: var(--ink) !important; font-size: 12px !important; }
 
 footer { padding-inline: 0; }
 .footer-meta { display: grid; grid-template-columns: auto minmax(180px, 1fr) auto; align-items: center; gap: 30px; padding-block: 42px; }
