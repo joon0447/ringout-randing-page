@@ -259,3 +259,18 @@ source_context: "styles.css"
 ```
 
 Journey mockups overlap from the left while keeping both screens visibly distinct.
+
+## 2026-08-25T16:15:59.658Z — journey-mockups-have-opposing-depth-motion
+
+```omd-meta
+id: pref_mt8v9y97_9c38c190
+timestamp: 2026-08-25T16:15:59.658Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "script.js, styles.css"
+```
+
+As the journey progresses, the right alarm mockup rises and grows while the left map mockup recedes, drops, and shrinks.

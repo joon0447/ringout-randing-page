@@ -3193,13 +3193,13 @@ html.js-ready .reveal.is-visible {
 
 .journey-visual[data-active-step] .phone-setting {
   z-index: 2;
-  transform: translate3d(var(--journey-setting-shift, 0px), 0, 0) scale(var(--journey-setting-scale, 2));
+  transform: translate3d(var(--journey-setting-shift, 0px), var(--journey-setting-lift, 0px), 0) scale(var(--journey-setting-scale, 2));
   transform-origin: left center;
 }
 
 .journey-visual[data-active-step] .phone-map {
   z-index: 3;
-  transform: translateX(clamp(-150px, -12vw, -48px)) scale(var(--journey-map-scale, 2));
+  transform: translate3d(clamp(-150px, -12vw, -48px), var(--journey-map-drop, 0px), 0) scale(var(--journey-map-scale, 2));
   transform-origin: right center;
 }
 

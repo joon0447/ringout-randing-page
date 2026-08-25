@@ -27,21 +27,30 @@ const updateScrollState = () => {
     const useStaticJourneyState = prefersReducedMotion || window.innerWidth <= 820;
 
     if (useStaticJourneyState) {
-      journeyVisual.style.setProperty("--journey-setting-scale", "2.08");
+      journeyVisual.style.setProperty("--journey-setting-scale", "2.10");
       journeyVisual.style.setProperty("--journey-setting-shift", "16px");
-      journeyVisual.style.setProperty("--journey-map-scale", "1.96");
+      journeyVisual.style.setProperty("--journey-setting-lift", "-36px");
+      journeyVisual.style.setProperty("--journey-map-scale", "1.88");
+      journeyVisual.style.setProperty("--journey-map-drop", "30px");
       journeyVisual.classList.add("is-setting-front");
     } else {
-      const stepsRect = journeySteps.getBoundingClientRect();
-      const startPoint = window.innerHeight * 0.62;
-      const travelDistance = startPoint + journeySteps.offsetHeight * 0.22;
-      const progress = Math.min(1, Math.max(0, (startPoint - stepsRect.top) / travelDistance));
+      const visualRect = journeyVisual.getBoundingClientRect();
+      const startPoint = window.innerHeight * 0.11;
+      const travelDistance = journeyVisual.offsetHeight * 0.7;
+      const progress = Math.min(1, Math.max(0, (startPoint - visualRect.top) / travelDistance));
       const easedProgress = progress * progress * (3 - 2 * progress);
+      const shortViewport = window.innerHeight < 720;
+      const settingBoost = shortViewport ? 0.1 : 0.14;
+      const settingLift = shortViewport ? 36 : 64;
+      const mapReduction = shortViewport ? 0.12 : 0.18;
+      const mapDrop = shortViewport ? 30 : 52;
 
-      journeyVisual.style.setProperty("--journey-setting-scale", (2 + easedProgress * 0.08).toFixed(3));
+      journeyVisual.style.setProperty("--journey-setting-scale", (2 + easedProgress * settingBoost).toFixed(3));
       journeyVisual.style.setProperty("--journey-setting-shift", `${(easedProgress * 16).toFixed(1)}px`);
-      journeyVisual.style.setProperty("--journey-map-scale", (2 - easedProgress * 0.04).toFixed(3));
-      journeyVisual.classList.toggle("is-setting-front", easedProgress >= 0.48);
+      journeyVisual.style.setProperty("--journey-setting-lift", `${(-easedProgress * settingLift).toFixed(1)}px`);
+      journeyVisual.style.setProperty("--journey-map-scale", (2 - easedProgress * mapReduction).toFixed(3));
+      journeyVisual.style.setProperty("--journey-map-drop", `${(easedProgress * mapDrop).toFixed(1)}px`);
+      journeyVisual.classList.toggle("is-setting-front", easedProgress >= 0.4);
     }
   }
 
