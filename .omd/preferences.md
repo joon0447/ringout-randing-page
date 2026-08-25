@@ -169,3 +169,18 @@ source_context: "index.html"
 ```
 
 App Store CTAs include the same trailing arrow used on Google Play CTAs.
+
+## 2026-08-25T12:21:36.000Z — left-hero-alarm-mockup-is-larger
+
+```omd-meta
+id: pref_mt8mwj15_7595cdff
+timestamp: 2026-08-25T12:21:36.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+The left alarm-setting mockup is larger than the right destination mockup.

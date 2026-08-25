@@ -2895,6 +2895,11 @@ footer {
   max-height: min(66svh, 500px);
 }
 
+.hero-phone-pair .hero-phone-alarm {
+  max-width: min(55%, 340px);
+  max-height: min(70svh, 540px);
+}
+
 .hero-phone-destination {
   transform: rotate(calc(5deg - var(--hero-progress) * 9deg))
     scale(calc(1 - var(--hero-progress) * 0.08));
@@ -2903,6 +2908,10 @@ footer {
 @media (min-width: 1101px) {
   .hero-inner {
     grid-template-columns: minmax(0, 0.85fr) minmax(340px, 1.15fr);
+  }
+
+  .hero-phone-destination {
+    left: 36px;
   }
 }
 
