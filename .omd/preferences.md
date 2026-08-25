@@ -154,3 +154,18 @@ source_context: "styles.css"
 ```
 
 Header content gutters stay compact, keeping the icon and download CTA close to the header edges.
+
+## 2026-08-25T12:18:07.000Z — app-store-ctas-include-the-same-arrow
+
+```omd-meta
+id: pref_mt8ms1z5_439b59f6
+timestamp: 2026-08-25T12:18:07.000Z
+scope: components.button
+signal: user-statement
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+App Store CTAs include the same trailing arrow used on Google Play CTAs.
