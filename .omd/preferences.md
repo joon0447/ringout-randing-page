@@ -124,3 +124,18 @@ source_context: "index.html, styles.css"
 ```
 
 Hero mockups are paired left to right, with the new destination screen on the right.
+
+## 2026-08-25T11:34:00.000Z — hero-mockups-use-a-larger-desktop-scale
+
+```omd-meta
+id: pref_mt8l7b2j_43c9d3f1
+timestamp: 2026-08-25T11:34:00.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+Hero mockups use a larger scale on desktop screens.
