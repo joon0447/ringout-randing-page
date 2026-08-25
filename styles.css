@@ -3217,6 +3217,29 @@ html.js-ready .reveal.is-visible {
   filter: brightness(0.94) drop-shadow(0 12px 20px rgb(0 0 0 / 24%));
 }
 
+.journey-visual[data-active-step="1"] .phone-setting {
+  z-index: 2;
+  transform: translate3d(0, var(--journey-map-drop, 0px), 0) scale(var(--journey-setting-scale, 1.4));
+  transform-origin: left center;
+}
+
+.journey-visual[data-active-step="1"] .phone-map {
+  z-index: 3;
+  width: min(60%, 176px);
+  max-width: 60%;
+  transform: translate3d(0, var(--journey-setting-lift, 0px), 0) scale(var(--journey-map-scale, 1.4));
+  transform-origin: right center;
+}
+
+.journey-visual.is-map-front .phone-map {
+  z-index: 4;
+  filter: drop-shadow(0 24px 34px rgb(0 0 0 / 46%));
+}
+
+.journey-visual.is-map-front .phone-setting {
+  filter: brightness(0.94) drop-shadow(0 12px 20px rgb(0 0 0 / 24%));
+}
+
 .journey-layout { display: block; }
 
 .journey-stage,
@@ -3227,10 +3250,12 @@ html.js-ready .reveal.is-visible {
 }
 
 .journey-stage { align-items: center; }
+.journey-move-track { grid-column: 1 / -1; }
 .journey-following-steps .journey-step { grid-column: 2; }
 
 @media (min-width: 821px) and (prefers-reduced-motion: no-preference) {
-  .journey-intro-track {
+  .journey-intro-track,
+  .journey-move-track {
     --journey-stage-height: min(760px, calc(100svh - 104px));
     min-height: calc(var(--journey-stage-height) + clamp(1080px, 140svh, 1360px));
   }
