@@ -274,3 +274,18 @@ source_context: "script.js, styles.css"
 ```
 
 As the journey progresses, the right alarm mockup rises and grows while the left map mockup recedes, drops, and shrinks.
+
+## 2026-08-25T16:26:17.797Z — journey-mockups-use-a-four-step-pinned-track
+
+```omd-meta
+id: pref_mt8vn77r_7f41cac6
+timestamp: 2026-08-25T16:26:17.797Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "script.js, styles.css"
+```
+
+Journey mockups render at 70% scale and remain pinned until the four-step sequence has been presented.

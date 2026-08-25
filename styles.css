@@ -3187,8 +3187,8 @@ html.js-ready .reveal.is-visible {
 .journey-visual {
   position: relative;
   top: auto;
-  height: min(1280px, 140svh);
-  min-height: min(1280px, 140svh);
+  height: min(920px, 110svh);
+  min-height: min(920px, 110svh);
 }
 
 .journey-visual[data-active-step] .phone-setting {
@@ -3215,4 +3215,27 @@ html.js-ready .reveal.is-visible {
 
 .journey-visual.is-setting-front .phone-map {
   filter: brightness(0.94) drop-shadow(0 12px 20px rgb(0 0 0 / 24%));
+}
+
+@media (min-width: 821px) and (prefers-reduced-motion: no-preference) {
+  .journey-layout { align-items: start; }
+
+  .journey-visual {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+    height: min(820px, calc(100svh - 104px));
+    min-height: 620px;
+  }
+
+  .journey-step {
+    min-height: clamp(500px, 78svh, 760px);
+    scroll-margin-top: 104px;
+  }
+
+  .journey-step:last-child { padding-bottom: min(22svh, 200px); }
+
+  .journey-visual .journey-phone {
+    transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), filter 180ms ease;
+  }
 }

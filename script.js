@@ -5,7 +5,59 @@ const progressBar = document.querySelector(".scroll-progress span");
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
 const journeyVisual = document.querySelector(".journey-visual");
-const journeySteps = document.querySelector(".journey-steps");
+const journeyStepItems = [...document.querySelectorAll(".journey-step")];
+
+const journeyScenes = [
+  { settingScale: 1.4, settingShift: 0, settingLift: 0, mapScale: 1.4, mapDrop: 0, front: "map" },
+  { settingScale: 1.42, settingShift: 4, settingLift: -16, mapScale: 1.34, mapDrop: 12, front: "map" },
+  { settingScale: 1.498, settingShift: 16, settingLift: -42, mapScale: 1.274, mapDrop: 30, front: "setting" },
+  { settingScale: 1.39, settingShift: 0, settingLift: 8, mapScale: 1.47, mapDrop: -18, front: "map" },
+];
+
+let journeyStepObserver = null;
+let activeJourneyStep = -1;
+
+const setJourneyScene = (stepIndex) => {
+  if (!journeyVisual || !journeyStepItems.length) return;
+
+  const scene = journeyScenes[stepIndex] ?? journeyScenes[0];
+  journeyVisual.dataset.activeStep = String(stepIndex);
+  journeyVisual.style.setProperty("--journey-setting-scale", String(scene.settingScale));
+  journeyVisual.style.setProperty("--journey-setting-shift", `${scene.settingShift}px`);
+  journeyVisual.style.setProperty("--journey-setting-lift", `${scene.settingLift}px`);
+  journeyVisual.style.setProperty("--journey-map-scale", String(scene.mapScale));
+  journeyVisual.style.setProperty("--journey-map-drop", `${scene.mapDrop}px`);
+  journeyVisual.classList.toggle("is-setting-front", scene.front === "setting");
+  journeyStepItems.forEach((step, index) => step.classList.toggle("is-active", index === stepIndex));
+  activeJourneyStep = stepIndex;
+};
+
+const configureJourneyScenes = () => {
+  const usePinnedJourney = !prefersReducedMotion && window.innerWidth > 820 && "IntersectionObserver" in window;
+
+  if (!usePinnedJourney) {
+    journeyStepObserver?.disconnect();
+    journeyStepObserver = null;
+    setJourneyScene(0);
+    return;
+  }
+
+  if (journeyStepObserver) return;
+
+  journeyStepObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const stepIndex = journeyStepItems.indexOf(entry.target);
+        if (stepIndex !== -1 && stepIndex !== activeJourneyStep) setJourneyScene(stepIndex);
+      });
+    },
+    { rootMargin: "-42% 0px -42% 0px", threshold: 0 },
+  );
+
+  journeyStepItems.forEach((step) => journeyStepObserver.observe(step));
+  setJourneyScene(0);
+};
 
 let ticking = false;
 
@@ -23,37 +75,6 @@ const updateScrollState = () => {
     document.documentElement.style.setProperty("--hero-progress", heroProgress.toFixed(3));
   }
 
-  if (journeyVisual && journeySteps) {
-    const useStaticJourneyState = prefersReducedMotion || window.innerWidth <= 820;
-
-    if (useStaticJourneyState) {
-      journeyVisual.style.setProperty("--journey-setting-scale", "2.10");
-      journeyVisual.style.setProperty("--journey-setting-shift", "16px");
-      journeyVisual.style.setProperty("--journey-setting-lift", "-36px");
-      journeyVisual.style.setProperty("--journey-map-scale", "1.88");
-      journeyVisual.style.setProperty("--journey-map-drop", "30px");
-      journeyVisual.classList.add("is-setting-front");
-    } else {
-      const visualRect = journeyVisual.getBoundingClientRect();
-      const startPoint = window.innerHeight * 0.11;
-      const travelDistance = journeyVisual.offsetHeight * 0.7;
-      const progress = Math.min(1, Math.max(0, (startPoint - visualRect.top) / travelDistance));
-      const easedProgress = progress * progress * (3 - 2 * progress);
-      const shortViewport = window.innerHeight < 720;
-      const settingBoost = shortViewport ? 0.1 : 0.14;
-      const settingLift = shortViewport ? 36 : 64;
-      const mapReduction = shortViewport ? 0.12 : 0.18;
-      const mapDrop = shortViewport ? 30 : 52;
-
-      journeyVisual.style.setProperty("--journey-setting-scale", (2 + easedProgress * settingBoost).toFixed(3));
-      journeyVisual.style.setProperty("--journey-setting-shift", `${(easedProgress * 16).toFixed(1)}px`);
-      journeyVisual.style.setProperty("--journey-setting-lift", `${(-easedProgress * settingLift).toFixed(1)}px`);
-      journeyVisual.style.setProperty("--journey-map-scale", (2 - easedProgress * mapReduction).toFixed(3));
-      journeyVisual.style.setProperty("--journey-map-drop", `${(easedProgress * mapDrop).toFixed(1)}px`);
-      journeyVisual.classList.toggle("is-setting-front", easedProgress >= 0.4);
-    }
-  }
-
   ticking = false;
 };
 
@@ -65,7 +86,14 @@ const requestScrollState = () => {
 };
 
 window.addEventListener("scroll", requestScrollState, { passive: true });
-window.addEventListener("resize", requestScrollState, { passive: true });
+window.addEventListener(
+  "resize",
+  () => {
+    configureJourneyScenes();
+    requestScrollState();
+  },
+  { passive: true },
+);
 
 const revealItems = document.querySelectorAll(".reveal");
 
@@ -142,4 +170,5 @@ window.setTimeout(() => {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }, 2200);
 
+configureJourneyScenes();
 updateScrollState();
