@@ -2833,24 +2833,6 @@ footer {
   width: min(42vw, 620px);
 }
 
-.screen-caption {
-  position: absolute;
-  z-index: 7;
-  right: 0;
-  bottom: 5%;
-  max-width: 230px;
-  margin: 0;
-  padding: 12px 14px;
-  border: 1px solid rgb(23 24 21 / 12%);
-  border-radius: 14px;
-  color: rgb(23 24 21 / 72%);
-  background: rgb(255 255 255 / 90%);
-  box-shadow: 0 12px 34px rgb(75 28 8 / 14%);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
 .manifesto {
   display: block;
   padding-inline: 0;
@@ -3072,7 +3054,6 @@ html.js-ready .reveal.is-visible {
   .hero-visual { height: 530px; }
   .hero-phone { height: min(62svh, 500px); }
   .hero-orbit { width: min(88vw, 600px); }
-  .screen-caption { right: 2%; bottom: 1%; }
   .manifesto-inner { grid-template-columns: 1fr; }
   .alarm-contrast { grid-column: auto; grid-template-columns: 1fr; }
   .journey-layout { grid-template-columns: 1fr; margin-top: 54px; }
@@ -3097,7 +3078,6 @@ html.js-ready .reveal.is-visible {
   .store-button { width: 100%; min-height: 52px; }
   .hero-visual { height: 470px; }
   .hero-phone { height: 445px; }
-  .screen-caption { max-width: 195px; font-size: 10px; }
   .journey-visual { min-height: 470px; padding: 20px; }
   .actual-screen-stack { gap: 8px; }
   .journey-visual .journey-phone { max-height: 390px; }

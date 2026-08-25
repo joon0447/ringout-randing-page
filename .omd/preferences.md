@@ -49,3 +49,18 @@ source_context: "index.html"
 ```
 
 Hero sections use the supplied alarm-setting screen image.
+
+## 2026-08-25T10:49:04.000Z — hero-phone-imagery-has-no-overlay-caption
+
+```omd-meta
+id: pref_mt8jlitj_46c80b97
+timestamp: 2026-08-25T10:49:04.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Hero phone imagery has no overlapping caption or overlay.
