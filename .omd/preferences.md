@@ -139,3 +139,18 @@ source_context: "styles.css"
 ```
 
 Hero mockups use a larger scale on desktop screens.
+
+## 2026-08-25T11:53:32.000Z — header-content-gutters-stay-compact
+
+```omd-meta
+id: pref_mt8lwfvy_a36b4673
+timestamp: 2026-08-25T11:53:32.000Z
+scope: components.navigation
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+Header content gutters stay compact, keeping the icon and download CTA close to the header edges.
