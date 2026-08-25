@@ -79,3 +79,18 @@ source_context: "index.html, styles.css"
 ```
 
 Store CTAs use App Store text only and a Google Play icon.
+
+## 2026-08-25T11:09:08.000Z — app-store-cta-opens-preparation-dialog
+
+```omd-meta
+id: pref_mt8kbcc4_ea245137
+timestamp: 2026-08-25T11:09:08.000Z
+scope: components.dialog
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css, script.js"
+```
+
+App Store CTAs open a deployment-preparation dialog instead of remaining disabled.

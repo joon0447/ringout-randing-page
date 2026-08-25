@@ -2816,14 +2816,62 @@ footer {
   flex: 0 0 auto;
 }
 
-.store-button-disabled {
+.store-button-secondary {
   color: var(--ink);
   border-color: rgb(23 24 21 / 24%);
   background: var(--cream);
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
-.store-button:disabled { opacity: 1; }
+.store-button-secondary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.app-store-dialog {
+  width: min(calc(100vw - 40px), 360px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgb(23 24 21 / 14%);
+  border-radius: 20px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 28px 80px rgb(23 24 21 / 28%);
+}
+
+.app-store-dialog::backdrop {
+  background: rgb(23 24 21 / 48%);
+  backdrop-filter: blur(3px);
+}
+
+.app-store-dialog-content {
+  display: grid;
+  gap: 24px;
+  padding: 32px;
+  text-align: center;
+}
+
+.app-store-dialog h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.app-store-dialog-confirm {
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--ink);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.app-store-dialog-confirm:hover {
+  color: var(--ink);
+  background: var(--lime);
+}
 
 .hero-visual {
   height: min(720px, 72svh);
@@ -3015,7 +3063,7 @@ footer {
 .final-cta .section-index,
 .final-cta-inner > p { color: var(--ink); }
 .final-cta .store-actions { margin-top: 26px; }
-.final-cta .store-button-disabled { color: var(--ink); border-color: rgb(23 24 21 / 32%); background: rgb(255 255 255 / 28%); }
+.final-cta .store-button-secondary { color: var(--ink); border-color: rgb(23 24 21 / 32%); background: rgb(255 255 255 / 28%); }
 .platform-note { margin-bottom: 0 !important; font-weight: 800; }
 
 footer { padding-inline: 0; }

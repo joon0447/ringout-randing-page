@@ -63,6 +63,34 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+const appStoreDialog = document.querySelector("#app-store-dialog");
+const appStoreDialogTriggers = document.querySelectorAll("[data-app-store-dialog]");
+const appStoreDialogConfirm = appStoreDialog?.querySelector(".app-store-dialog-confirm");
+let appStoreDialogTrigger = null;
+
+appStoreDialogTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    appStoreDialogTrigger = trigger;
+    if (!appStoreDialog?.open) appStoreDialog?.showModal();
+    appStoreDialogConfirm?.focus();
+  });
+});
+
+appStoreDialog?.addEventListener("click", (event) => {
+  if (event.target === appStoreDialog) appStoreDialog.close();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !appStoreDialog?.open) return;
+  event.preventDefault();
+  appStoreDialog.close();
+});
+
+appStoreDialog?.addEventListener("close", () => {
+  appStoreDialogTrigger?.focus();
+  appStoreDialogTrigger = null;
+});
+
 root.classList.add("js-ready");
 window.setTimeout(() => {
   revealItems.forEach((item) => item.classList.add("is-visible"));
