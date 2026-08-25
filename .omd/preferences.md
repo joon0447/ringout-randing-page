@@ -94,3 +94,33 @@ source_context: "index.html, styles.css, script.js"
 ```
 
 App Store CTAs open a deployment-preparation dialog instead of remaining disabled.
+
+## 2026-08-25T11:16:11.000Z — header-outer-gutters-stay-small-on-wide-screens
+
+```omd-meta
+id: pref_mt8kkeqp_0890f573
+timestamp: 2026-08-25T11:16:11.000Z
+scope: components.navigation
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+Header outer gutters stay small on wide screens.
+
+## 2026-08-25T11:27:37.000Z — hero-mockups-are-paired-left-to-right
+
+```omd-meta
+id: pref_mt8kz3oq_6a443624
+timestamp: 2026-08-25T11:27:37.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Hero mockups are paired left to right, with the new destination screen on the right.

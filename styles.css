@@ -2701,7 +2701,7 @@ footer {
 
 .site-header {
   display: block;
-  width: min(calc(100% - 32px), 1440px);
+  width: calc(100% - 32px);
   margin-inline: auto;
   inset-inline: 0;
   padding: 0;
@@ -2875,6 +2875,28 @@ footer {
 
 .hero-visual {
   height: min(720px, 72svh);
+}
+
+.hero-phone-pair {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 20px);
+}
+
+.hero-phone-pair .hero-phone {
+  width: auto;
+  height: auto;
+  max-width: calc(50% - 10px);
+  max-height: min(58svh, 440px);
+}
+
+.hero-phone-destination {
+  transform: rotate(calc(5deg - var(--hero-progress) * 9deg))
+    scale(calc(1 - var(--hero-progress) * 0.08));
 }
 
 .hero-orbit {
