@@ -244,3 +244,18 @@ source_context: "styles.css"
 ```
 
 Journey mockups render at double their previous size.
+
+## 2026-08-25T15:57:53.300Z — journey-mockups-remain-distinct-when-overlapped
+
+```omd-meta
+id: pref_mt8umo0q_559d6a94
+timestamp: 2026-08-25T15:57:53.300Z
+scope: layout
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+Journey mockups overlap from the left while keeping both screens visibly distinct.

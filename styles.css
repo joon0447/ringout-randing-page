@@ -2955,7 +2955,8 @@ footer {
 .journey { padding-inline: 0; }
 
 .journey-layout {
-  grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 56px);
 }
 
 .journey-visual {
@@ -2977,6 +2978,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: clamp(12px, 2vw, 24px);
+  transform: translateX(clamp(0px, 6vw, 80px));
 }
 
 .journey-visual .journey-phone {
@@ -3001,6 +3003,7 @@ footer {
 
 .journey-visual .phone-setting {
   z-index: 2;
+  width: min(60%, 252px);
   max-width: 60%;
   margin-right: -12%;
 }
@@ -3194,6 +3197,6 @@ html.js-ready .reveal.is-visible {
 }
 
 .journey-visual[data-active-step] .phone-map {
-  transform: translateX(30px) scale(2);
+  transform: translateX(clamp(-150px, -12vw, -48px)) scale(2);
   transform-origin: right center;
 }
