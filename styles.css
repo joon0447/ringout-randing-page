@@ -2961,10 +2961,13 @@ footer {
 .journey-visual {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 560px;
-  padding: clamp(24px, 3vw, 44px);
-  background: var(--ink);
+  padding: clamp(8px, 1vw, 16px);
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .actual-screen-stack {
@@ -2980,7 +2983,7 @@ footer {
   position: static;
   display: block;
   width: auto;
-  max-height: min(58svh, 540px);
+  max-height: min(70svh, 640px);
   height: auto;
   margin: 0;
   border-radius: 18px;
@@ -2996,20 +2999,17 @@ footer {
   filter: drop-shadow(0 16px 25px rgb(0 0 0 / 35%));
 }
 
-.journey-visual .phone-setting { max-width: 48%; }
-.journey-visual .phone-map { max-width: 52%; }
-
-.journey-visual .visual-caption {
-  position: static;
-  display: grid;
-  gap: 6px;
-  padding: 18px 0 0;
-  color: #fff;
+.journey-visual .phone-setting {
+  z-index: 2;
+  max-width: 60%;
+  margin-right: -12%;
 }
 
-.visual-caption span { color: var(--lime); font-size: 11px; font-weight: 900; letter-spacing: 0.12em; }
-.visual-caption p { margin: 0; font-size: 14px; font-weight: 800; line-height: 1.5; }
-.visual-caption small { color: rgb(255 255 255 / 65%); font-size: 11px; }
+.journey-visual .phone-map {
+  z-index: 3;
+  max-width: 64%;
+  margin-left: -12%;
+}
 
 .journey-step {
   min-height: 250px;

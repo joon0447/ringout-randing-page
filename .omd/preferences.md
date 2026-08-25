@@ -214,3 +214,18 @@ source_context: "index.html"
 ```
 
 The first journey step uses the same paired alarm-setting and destination mockups as the hero.
+
+## 2026-08-25T15:43:35.000Z — journey-mockups-have-no-dark-container-or-caption
+
+```omd-meta
+id: pref_mt8u4a76_2ead42e3
+timestamp: 2026-08-25T15:43:35.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Journey mockups have no dark container or caption and use a larger, slightly overlapping composition.
