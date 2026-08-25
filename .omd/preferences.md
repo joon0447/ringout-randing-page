@@ -289,3 +289,18 @@ source_context: "script.js, styles.css"
 ```
 
 Journey mockups render at 70% scale and remain pinned until the four-step sequence has been presented.
+
+## 2026-08-25T16:35:51.054Z — current-journey-mockups-belong-only-to-step-one
+
+```omd-meta
+id: pref_mt8vzhjk_94b41859
+timestamp: 2026-08-25T16:35:51.054Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, script.js, styles.css"
+```
+
+The two current journey mockups belong only to step one; its stage and text stay pinned until the right mockup finishes enlarging, then step two enters without those images.

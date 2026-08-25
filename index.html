@@ -35,7 +35,7 @@
     <link rel="preload" as="image" href="assets/ringout-hero-alarm-setting.png" />
     <link rel="preload" as="image" href="assets/ringout-hero-destination.png" />
     <link rel="preload" as="image" href="assets/ringout-destination.png" />
-    <link rel="stylesheet" href="styles.css?v=20260905" />
+    <link rel="stylesheet" href="styles.css?v=20260906" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EV0CKKLM3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -43,7 +43,7 @@
       gtag("js", new Date());
       gtag("config", "G-2EV0CKKLM3");
     </script>
-    <script src="script.js?v=20260826" defer></script>
+    <script src="script.js?v=20260906" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -105,14 +105,18 @@
         <div class="container-inner journey-inner">
           <div class="section-heading reveal"><h2 id="how-title">오늘 밤의 계획이<br /><span>내일 아침 행동이 되는 과정</span></h2></div>
           <div class="journey-layout">
-            <div class="journey-visual" data-active-step="0">
-              <div class="actual-screen-stack">
-                <img class="journey-phone phone-setting" src="assets/ringout-hero-alarm-setting.png" alt="알람 시간, 목표 지점, 반복 알람 간격을 설정하는 RingOut Android 앱 화면 예시" width="1024" height="1536" />
-                <img class="journey-phone phone-map" src="assets/ringout-hero-destination.png" alt="지도에서 목표 지점을 선택하는 RingOut Android 앱 화면 예시" width="899" height="1748" />
+            <div class="journey-intro-track" data-journey-intro>
+              <div class="journey-stage">
+                <div class="journey-visual" data-active-step="0">
+                  <div class="actual-screen-stack">
+                    <img class="journey-phone phone-setting" src="assets/ringout-hero-alarm-setting.png" alt="알람 시간, 목표 지점, 반복 알람 간격을 설정하는 RingOut Android 앱 화면 예시" width="1024" height="1536" />
+                    <img class="journey-phone phone-map" src="assets/ringout-hero-destination.png" alt="지도에서 목표 지점을 선택하는 RingOut Android 앱 화면 예시" width="899" height="1748" />
+                  </div>
+                </div>
+                <article class="journey-step journey-step--intro is-active" data-step="0"><span class="step-number">01</span><div><h3>시간과 목표 지점을<br />함께 정해요.</h3><p>알람 시간, 목표 지점, 제한 시간을 내일 계획에 맞게 설정해요.</p></div></article>
               </div>
             </div>
-            <div class="journey-steps">
-              <article class="journey-step is-active" data-step="0"><span class="step-number">01</span><div><h3>시간과 목표 지점을<br />함께 정해요.</h3><p>알람 시간, 목표 지점, 제한 시간을 내일 계획에 맞게 설정해요.</p></div></article>
+            <div class="journey-following-steps">
               <article class="journey-step" data-step="1"><span class="step-number">02</span><div><h3>알람을 끄면,<br />목표 지점을 향해 움직여요.</h3><p>알람 해제와 동시에 도착 미션이 시작돼요. 남은 시간과 목표 지점까지의 거리를 보며 이동해요.</p><p class="explanation-tag">동작 설명 예시</p></div></article>
               <article class="journey-step" data-step="2"><span class="step-number">03</span><div><h3>제한 시간 안에 도착하지 못하면,<br />재알람이 울려요.</h3><p>재알람을 끄면 제한 시간이 다시 시작되고, 도착 미션이 이어져요.</p><p class="explanation-tag">동작 설명 예시</p></div></article>
               <article class="journey-step" data-step="3"><span class="step-number">04</span><div><h3>목표 지점 반경에 들어오면,<br />알람이 끝나요.</h3><p>설정한 목표 지점에 도착하면 미션이 완료되고 오늘의 알람이 종료돼요.</p><p class="explanation-tag">동작 설명 예시</p></div></article>
