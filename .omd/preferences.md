@@ -184,3 +184,18 @@ source_context: "styles.css"
 ```
 
 The left alarm-setting mockup is larger than the right destination mockup.
+
+## 2026-08-25T15:26:25.000Z — journey-section-has-no-how-it-works-label
+
+```omd-meta
+id: pref_mt8ti7er_8e273be4
+timestamp: 2026-08-25T15:26:25.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The journey section has no HOW IT WORKS index label.
