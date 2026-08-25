@@ -3192,11 +3192,27 @@ html.js-ready .reveal.is-visible {
 }
 
 .journey-visual[data-active-step] .phone-setting {
-  transform: scale(2);
+  z-index: 2;
+  transform: translate3d(var(--journey-setting-shift, 0px), 0, 0) scale(var(--journey-setting-scale, 2));
   transform-origin: left center;
 }
 
 .journey-visual[data-active-step] .phone-map {
-  transform: translateX(clamp(-150px, -12vw, -48px)) scale(2);
+  z-index: 3;
+  transform: translateX(clamp(-150px, -12vw, -48px)) scale(var(--journey-map-scale, 2));
   transform-origin: right center;
+}
+
+.journey-visual .journey-phone {
+  will-change: transform, filter;
+  transition: filter 180ms ease;
+}
+
+.journey-visual.is-setting-front .phone-setting {
+  z-index: 4;
+  filter: drop-shadow(0 24px 34px rgb(0 0 0 / 46%));
+}
+
+.journey-visual.is-setting-front .phone-map {
+  filter: brightness(0.94) drop-shadow(0 12px 20px rgb(0 0 0 / 24%));
 }

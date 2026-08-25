@@ -4,6 +4,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const progressBar = document.querySelector(".scroll-progress span");
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
+const journeyVisual = document.querySelector(".journey-visual");
+const journeySteps = document.querySelector(".journey-steps");
 
 let ticking = false;
 
@@ -21,19 +23,40 @@ const updateScrollState = () => {
     document.documentElement.style.setProperty("--hero-progress", heroProgress.toFixed(3));
   }
 
+  if (journeyVisual && journeySteps) {
+    const useStaticJourneyState = prefersReducedMotion || window.innerWidth <= 820;
+
+    if (useStaticJourneyState) {
+      journeyVisual.style.setProperty("--journey-setting-scale", "2.08");
+      journeyVisual.style.setProperty("--journey-setting-shift", "16px");
+      journeyVisual.style.setProperty("--journey-map-scale", "1.96");
+      journeyVisual.classList.add("is-setting-front");
+    } else {
+      const stepsRect = journeySteps.getBoundingClientRect();
+      const startPoint = window.innerHeight * 0.62;
+      const travelDistance = startPoint + journeySteps.offsetHeight * 0.22;
+      const progress = Math.min(1, Math.max(0, (startPoint - stepsRect.top) / travelDistance));
+      const easedProgress = progress * progress * (3 - 2 * progress);
+
+      journeyVisual.style.setProperty("--journey-setting-scale", (2 + easedProgress * 0.08).toFixed(3));
+      journeyVisual.style.setProperty("--journey-setting-shift", `${(easedProgress * 16).toFixed(1)}px`);
+      journeyVisual.style.setProperty("--journey-map-scale", (2 - easedProgress * 0.04).toFixed(3));
+      journeyVisual.classList.toggle("is-setting-front", easedProgress >= 0.48);
+    }
+  }
+
   ticking = false;
 };
 
-window.addEventListener(
-  "scroll",
-  () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateScrollState);
-      ticking = true;
-    }
-  },
-  { passive: true },
-);
+const requestScrollState = () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateScrollState);
+    ticking = true;
+  }
+};
+
+window.addEventListener("scroll", requestScrollState, { passive: true });
+window.addEventListener("resize", requestScrollState, { passive: true });
 
 const revealItems = document.querySelectorAll(".reveal");
 
