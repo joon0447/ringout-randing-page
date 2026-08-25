@@ -304,3 +304,18 @@ source_context: "index.html, script.js, styles.css"
 ```
 
 The two current journey mockups belong only to step one; its stage and text stay pinned until the right mockup finishes enlarging, then step two enters without those images.
+
+## 2026-08-25T16:44:37.025Z — second-mockup-matches-first-at-max-and-holds
+
+```omd-meta
+id: pref_mt8wardu_414c821c
+timestamp: 2026-08-25T16:44:37.025Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "script.js, styles.css"
+```
+
+The second journey mockup matches the first mockup's maximum visual height, then holds at full enlargement until additional scrolling releases the step-one stage.

@@ -3232,7 +3232,7 @@ html.js-ready .reveal.is-visible {
 @media (min-width: 821px) and (prefers-reduced-motion: no-preference) {
   .journey-intro-track {
     --journey-stage-height: min(760px, calc(100svh - 104px));
-    min-height: calc(var(--journey-stage-height) + clamp(720px, 100svh, 960px));
+    min-height: calc(var(--journey-stage-height) + clamp(1080px, 140svh, 1360px));
   }
 
   .journey-stage {

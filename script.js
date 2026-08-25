@@ -18,17 +18,18 @@ const setJourneyIntroState = () => {
     const trackRect = journeyIntroTrack.getBoundingClientRect();
     const scrollDistance = Math.max(journeyIntroTrack.offsetHeight - journeyStage.offsetHeight, 1);
     const trackProgress = Math.min(1, Math.max(0, (88 - trackRect.top) / scrollDistance));
-    const motionProgress = Math.min(1, Math.max(0, (trackProgress - 0.1) / 0.72));
+    const motionProgress = Math.min(1, Math.max(0, (trackProgress - 0.08) / 0.52));
     focusProgress = motionProgress * motionProgress * (3 - 2 * motionProgress);
   }
 
+  const settingLift = window.innerHeight >= 840 ? 12 : 0;
   journeyVisual.dataset.activeStep = "0";
-  journeyVisual.style.setProperty("--journey-setting-scale", (1.4 + focusProgress * 0.2).toFixed(3));
-  journeyVisual.style.setProperty("--journey-setting-shift", `${(focusProgress * 14).toFixed(1)}px`);
-  journeyVisual.style.setProperty("--journey-setting-lift", `${(-focusProgress * 40).toFixed(1)}px`);
+  journeyVisual.style.setProperty("--journey-setting-scale", (1.4 + focusProgress * 0.47).toFixed(3));
+  journeyVisual.style.setProperty("--journey-setting-shift", `${(-focusProgress * 44).toFixed(1)}px`);
+  journeyVisual.style.setProperty("--journey-setting-lift", `${(-focusProgress * settingLift).toFixed(1)}px`);
   journeyVisual.style.setProperty("--journey-map-scale", (1.4 - focusProgress * 0.14).toFixed(3));
   journeyVisual.style.setProperty("--journey-map-drop", `${(focusProgress * 28).toFixed(1)}px`);
-  journeyVisual.classList.toggle("is-setting-front", focusProgress >= 0.3);
+  journeyVisual.classList.toggle("is-setting-front", focusProgress >= 0.18);
 };
 
 let ticking = false;
