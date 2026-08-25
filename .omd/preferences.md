@@ -199,3 +199,18 @@ source_context: "index.html"
 ```
 
 The journey section has no HOW IT WORKS index label.
+
+## 2026-08-25T15:38:14.000Z — first-journey-step-uses-the-two-hero-mockups
+
+```omd-meta
+id: pref_mt8txe2n_45de325b
+timestamp: 2026-08-25T15:38:14.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The first journey step uses the same paired alarm-setting and destination mockups as the hero.
