@@ -63,6 +63,20 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+const storeClickEventNames = {
+  app_store: "app_store_click",
+  google_play: "google_play_click",
+};
+
+document.querySelectorAll("[data-store-click]").forEach((storeButton) => {
+  storeButton.addEventListener("click", () => {
+    const eventName = storeClickEventNames[storeButton.dataset.storeClick];
+    if (eventName && typeof window.gtag === "function") {
+      window.gtag("event", eventName);
+    }
+  });
+});
+
 const appStoreDialog = document.querySelector("#app-store-dialog");
 const appStoreDialogTriggers = document.querySelectorAll("[data-app-store-dialog]");
 const appStoreDialogConfirm = appStoreDialog?.querySelector(".app-store-dialog-confirm");
