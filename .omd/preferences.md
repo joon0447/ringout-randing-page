@@ -229,3 +229,18 @@ source_context: "index.html, styles.css"
 ```
 
 Journey mockups have no dark container or caption and use a larger, slightly overlapping composition.
+
+## 2026-08-25T15:49:41.000Z — journey-mockups-render-at-double-scale
+
+```omd-meta
+id: pref_mt8uc4rz_b10fdbe4
+timestamp: 2026-08-25T15:49:41.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+Journey mockups render at double their previous size.

@@ -3180,3 +3180,20 @@ html.js-ready .reveal.is-visible {
   .reveal,
   html.js-ready .reveal { animation: none; opacity: 1; transform: none; }
 }
+
+.journey-visual {
+  position: relative;
+  top: auto;
+  height: min(1280px, 140svh);
+  min-height: min(1280px, 140svh);
+}
+
+.journey-visual[data-active-step] .phone-setting {
+  transform: scale(2);
+  transform-origin: left center;
+}
+
+.journey-visual[data-active-step] .phone-map {
+  transform: translateX(30px) scale(2);
+  transform-origin: right center;
+}
