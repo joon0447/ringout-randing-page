@@ -514,3 +514,123 @@ source_context: "script.js, styles.css"
 ```
 
 Journey panels transition in place with sequential fade-out and fade-in, without vertical movement.
+
+## 2026-08-26T04:19:08.000Z — the-audience-section-omits-the-who-it-is
+
+```omd-meta
+id: pref_mt9l3xku_dfd52e5b
+timestamp: 2026-08-26T04:19:08.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The audience section omits the WHO IT IS FOR eyebrow label.
+
+## 2026-08-26T04:23:40.000Z — the-audience-heading-wording-omits-the-c
+
+```omd-meta
+id: pref_mt9l9qyq_55e754d0
+timestamp: 2026-08-26T04:23:40.000Z
+scope: voice
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The audience heading wording omits the comma after the first line.
+
+## 2026-08-26T04:33:27.000Z — the-records-section-omits-the-progress-r
+
+```omd-meta
+id: pref_mt9lmbrk_25be9c27
+timestamp: 2026-08-26T04:33:27.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The records section omits the PROGRESS & RECORDS eyebrow label.
+
+## 2026-08-26T04:34:51.000Z — the-records-heading-wording-omits-the-co
+
+```omd-meta
+id: pref_mt9lo4jn_43d16ffc
+timestamp: 2026-08-26T04:34:51.000Z
+scope: voice
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The records heading wording omits the comma after the first line.
+
+## 2026-08-26T04:50:06.000Z — the-landing-page-omits-the-audience-prog
+
+```omd-meta
+id: pref_mt9m7r80_05f17ad9
+timestamp: 2026-08-26T04:50:06.000Z
+scope: layout
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The landing page omits the audience, progress-records, and safety sections together with the obsolete records-safety navigation link.
+
+## 2026-08-26T05:01:38.000Z — final-cta-store-buttons-are-centered-in-
+
+```omd-meta
+id: pref_mt9mml2t_776778f9
+timestamp: 2026-08-26T05:01:38.000Z
+scope: components.button
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css, script.js"
+```
+
+Final CTA store buttons are centered in a row, reuse the preparation dialog and GA tracking, and omit the eyebrow and platform-note copy.
+
+## 2026-08-26T05:17:01.000Z — final-cta-app-store-and-google-play-butt
+
+```omd-meta
+id: pref_mt9n6cu7_465a0e15
+timestamp: 2026-08-26T05:17:01.000Z
+scope: components.button
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Final CTA App Store and Google Play buttons share the same white button background style.
+
+## 2026-08-26T05:18:50.000Z — the-final-google-play-cta-uses-text-only
+
+```omd-meta
+id: pref_mt9n8ozx_c64e417e
+timestamp: 2026-08-26T05:18:50.000Z
+scope: components.button
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+The final Google Play CTA uses text only, without the Play Store icon.
