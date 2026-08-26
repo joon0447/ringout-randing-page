@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#ff6d2e" />
     <meta
       name="description"
@@ -58,7 +58,10 @@
           <a href="#why">왜 필요한가</a>
           <a href="#how">작동 방식</a>
         </nav>
-        <a class="header-cta" href="#download">앱 받기 <span aria-hidden="true">↓</span></a>
+        <div class="header-store-actions" aria-label="앱 설치 경로">
+          <button class="header-store-button header-store-button-app" type="button" data-app-store-dialog data-store-click="app_store">App Store</button>
+          <a class="header-store-button header-store-button-google" href="https://play.google.com/store/apps/details?id=com.joon.ringout" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 RingOut Android 앱 받기(새 창)" data-store-click="google_play">Google Play</a>
+        </div>
       </div>
     </header>
 

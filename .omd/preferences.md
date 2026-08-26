@@ -634,3 +634,33 @@ source_context: "index.html"
 ```
 
 The final Google Play CTA uses text only, without the Play Store icon.
+
+## 2026-08-26T05:29:51.000Z — header-navigation-uses-app-store-and-goo
+
+```omd-meta
+id: pref_mt9nmv33_dfa64a68
+timestamp: 2026-08-26T05:29:51.000Z
+scope: components.navigation
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css, script.js"
+```
+
+Header navigation uses App Store and Google Play controls that become a safe-area-aware fixed bottom install bar on narrow screens.
+
+## 2026-08-26T05:38:11.000Z — mobile-header-itself-becomes-the-bottom-bar
+
+```omd-meta
+id: pref_mt9nxldn_1ded2125
+timestamp: 2026-08-26T05:38:11.000Z
+scope: components.navigation
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "styles.css"
+```
+
+On narrow screens, the header itself relocates into a full-width bottom bar with centered App Store and Google Play controls, leaving no top header.
