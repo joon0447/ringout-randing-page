@@ -4,50 +4,61 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const progressBar = document.querySelector(".scroll-progress span");
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
-const journeyIntroVisual = document.querySelector("[data-journey-intro] .journey-visual");
-const journeyIntroTrack = document.querySelector("[data-journey-intro]");
-const journeyIntroStage = journeyIntroTrack?.querySelector(".journey-stage");
-const journeyMoveVisual = document.querySelector("[data-journey-move] .journey-visual");
-const journeyMoveTrack = document.querySelector("[data-journey-move]");
-const journeyMoveStage = journeyMoveTrack?.querySelector(".journey-stage");
+const journeySequence = document.querySelector("[data-journey-sequence]");
+const journeyStage = journeySequence?.querySelector(".journey-stage");
+const journeyPanels = [...(journeySequence?.querySelectorAll("[data-journey-panel]") ?? [])];
+const journeyTimelineUnits = Math.max(journeyPanels.length - 1, 0);
 
-const getJourneyFocusProgress = (track, stage) => {
-  const usePinnedTrack = !prefersReducedMotion && window.innerWidth > 820 && track && stage;
-  if (!usePinnedTrack) return 0;
-
-  const trackRect = track.getBoundingClientRect();
-  const scrollDistance = Math.max(track.offsetHeight - stage.offsetHeight, 1);
-  const trackProgress = Math.min(1, Math.max(0, (88 - trackRect.top) / scrollDistance));
-  const motionProgress = Math.min(1, Math.max(0, (trackProgress - 0.08) / 0.52));
-  return motionProgress * motionProgress * (3 - 2 * motionProgress);
+const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+const smoothstep = (value) => {
+  const progress = clamp(value);
+  return progress * progress * (3 - 2 * progress);
 };
 
-const setJourneyIntroState = () => {
-  if (!journeyIntroVisual) return;
+const getJourneyTimeline = () => {
+  if (!journeySequence || !journeyStage) return 0;
 
-  const focusProgress = getJourneyFocusProgress(journeyIntroTrack, journeyIntroStage);
-  const settingLift = window.innerHeight >= 840 ? 12 : 0;
-  journeyIntroVisual.dataset.activeStep = "0";
-  journeyIntroVisual.style.setProperty("--journey-setting-scale", (1.4 + focusProgress * 0.47).toFixed(3));
-  journeyIntroVisual.style.setProperty("--journey-setting-shift", `${(-focusProgress * 44).toFixed(1)}px`);
-  journeyIntroVisual.style.setProperty("--journey-setting-lift", `${(-focusProgress * settingLift).toFixed(1)}px`);
-  journeyIntroVisual.style.setProperty("--journey-map-scale", (1.4 - focusProgress * 0.14).toFixed(3));
-  journeyIntroVisual.style.setProperty("--journey-map-drop", `${(focusProgress * 28).toFixed(1)}px`);
-  journeyIntroVisual.classList.toggle("is-setting-front", focusProgress >= 0.18);
+  const stageTop = Number.parseFloat(window.getComputedStyle(journeyStage).top) || 0;
+  const trackRect = journeySequence.getBoundingClientRect();
+  const scrollDistance = Math.max(journeySequence.offsetHeight - journeyStage.offsetHeight, 1);
+  const trackProgress = clamp((stageTop - trackRect.top) / scrollDistance);
+  return trackProgress * journeyTimelineUnits;
 };
 
-const setJourneyMoveState = () => {
-  if (!journeyMoveVisual) return;
+const setJourneySequenceState = () => {
+  if (!journeySequence || !journeyStage || journeyPanels.length === 0) return;
+  if (prefersReducedMotion) return;
 
-  const focusProgress = getJourneyFocusProgress(journeyMoveTrack, journeyMoveStage);
-  const mapLift = window.innerHeight >= 840 ? 12 : 0;
-  journeyMoveVisual.dataset.activeStep = "1";
-  journeyMoveVisual.style.setProperty("--journey-setting-scale", (1.4 - focusProgress * 0.14).toFixed(3));
-  journeyMoveVisual.style.setProperty("--journey-setting-shift", "0px");
-  journeyMoveVisual.style.setProperty("--journey-setting-lift", `${(-focusProgress * mapLift).toFixed(1)}px`);
-  journeyMoveVisual.style.setProperty("--journey-map-scale", (1.4 + focusProgress * 0.47).toFixed(3));
-  journeyMoveVisual.style.setProperty("--journey-map-drop", `${(focusProgress * 28).toFixed(1)}px`);
-  journeyMoveVisual.classList.toggle("is-map-front", focusProgress >= 0.18);
+  const timeline = getJourneyTimeline();
+  const transitionIndex = Math.min(Math.floor(timeline), journeyTimelineUnits);
+  let activePanelIndex = transitionIndex;
+  let activePanelOpacity = 1;
+
+  if (transitionIndex < journeyTimelineUnits) {
+    const localProgress = timeline - transitionIndex;
+    const transitionProgress = clamp((localProgress - 0.14) / 0.72);
+
+    if (transitionProgress < 0.5) {
+      const exitProgress = smoothstep(transitionProgress * 2);
+      activePanelOpacity = 1 - exitProgress;
+    } else {
+      const entryProgress = smoothstep((transitionProgress - 0.5) * 2);
+      activePanelIndex = transitionIndex + 1;
+      activePanelOpacity = entryProgress;
+    }
+  }
+
+  journeyPanels.forEach((panel, index) => {
+    const isActive = index === activePanelIndex;
+    const panelOpacity = isActive ? activePanelOpacity : 0;
+
+    panel.style.setProperty("--journey-panel-opacity", panelOpacity.toFixed(3));
+    panel.classList.toggle("is-active", isActive);
+    panel.toggleAttribute("inert", !isActive);
+    if (isActive) panel.removeAttribute("aria-hidden");
+    else panel.setAttribute("aria-hidden", "true");
+    panel.querySelector(".journey-step")?.classList.toggle("is-active", isActive);
+  });
 };
 
 let ticking = false;
@@ -66,8 +77,7 @@ const updateScrollState = () => {
     document.documentElement.style.setProperty("--hero-progress", heroProgress.toFixed(3));
   }
 
-  setJourneyIntroState();
-  setJourneyMoveState();
+  setJourneySequenceState();
 
   ticking = false;
 };

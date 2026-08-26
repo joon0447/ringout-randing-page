@@ -319,3 +319,198 @@ source_context: "script.js, styles.css"
 ```
 
 The second journey mockup matches the first mockup's maximum visual height, then holds at full enlargement until additional scrolling releases the step-one stage.
+
+## 2026-08-26T01:49:44.000Z — in-the-first-journey-step-the-destinatio
+
+```omd-meta
+id: pref_mt9frm7o_bcaef870
+timestamp: 2026-08-26T01:49:44.000Z
+scope: layout
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+In the first journey step, the destination mockup appears to the left of the alarm-setting mockup.
+
+## 2026-08-26T01:54:20.000Z — hero-mockup-backgrounds-have-no-lime-or-gr
+
+```omd-meta
+id: pref_mt9fxpj7_1f17743e
+timestamp: 2026-08-26T01:54:20.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html"
+```
+
+Hero mockup backgrounds have no lime or gray circular decoration.
+
+## 2026-08-26T02:01:21.000Z — hero-and-first-journey-mockups-use-the-supp
+
+```omd-meta
+id: pref_mt9g6qsq_b989913a
+timestamp: 2026-08-26T02:01:21.000Z
+scope: visualTheme
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, assets/ringout-mockup-alarm-setting.png, assets/ringout-mockup-destination-in-progress.png"
+```
+
+Hero and first-journey mockups use the supplied alarm-setting and destination-in-progress screenshots.
+
+## 2026-08-26T02:04:46.000Z — the-first-journey-step-uses-only-the-ala
+
+```omd-meta
+id: pref_mt9gb4cj_f2533b0b
+timestamp: 2026-08-26T02:04:46.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, script.js, styles.css"
+```
+
+The first journey step uses only the alarm-setting mockup and presents it statically, without scroll-driven animation.
+
+## 2026-08-26T02:15:52.000Z — the-second-journey-step-crossfades-from-
+
+```omd-meta
+id: pref_mt9gpejq_b76665fd
+timestamp: 2026-08-26T02:15:52.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, script.js, styles.css, assets/ringout-mockup-alarm-screen.png, assets/ringout-mockup-destination-in-progress.png"
+```
+
+The second journey step crossfades from the supplied alarm screen to the destination-in-progress screen as the user scrolls down.
+
+## 2026-08-26T03:06:49.000Z — the-journey-layout-aligns-the-step-two-m
+
+```omd-meta
+id: pref_mt9iixnw_5bf17a05
+timestamp: 2026-08-26T03:06:49.000Z
+scope: layout
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+The journey layout aligns the step-two mockup to the same horizontal center as step one.
+
+## 2026-08-26T03:06:49.000Z — journey-motion-uses-a-pinned-four-step-s
+
+```omd-meta
+id: pref_mt9iixoj_1e5b31df
+timestamp: 2026-08-26T03:06:49.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, script.js, styles.css"
+```
+
+Journey motion uses a pinned four-step sequence where each next panel rises from below as the previous panel exits upward.
+
+## 2026-08-26T03:11:50.000Z — journey-panels-omit-numeric-step-labels-
+
+```omd-meta
+id: pref_mt9ipdet_89dd12b7
+timestamp: 2026-08-26T03:11:50.000Z
+scope: components.badge
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+Journey panels omit numeric step labels and example-action badges.
+
+## 2026-08-26T03:18:42.000Z — journey-motion-keeps-the-alarm-mockup-in
+
+```omd-meta
+id: pref_mt9iy7dm_e08b0c5d
+timestamp: 2026-08-26T03:18:42.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, script.js, styles.css"
+```
+
+Journey motion keeps the alarm mockup in step two and moves the destination-in-progress mockup to step three, with no internal crossfade.
+
+## 2026-08-26T03:53:35.000Z — final-journey-panel-centers-and-emphasizes-arrival
+
+```omd-meta
+id: pref_mt9k72jv_c2e2a022
+timestamp: 2026-08-26T03:53:35.000Z
+scope: layout
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+The image-free final journey panel centers its destination-arrival message and uses a substantially larger headline for emphasis.
+
+## 2026-08-26T03:55:10.000Z — the-final-arrival-headline-uses-a-subtle
+
+```omd-meta
+id: pref_mt9k93r0_8bc4a224
+timestamp: 2026-08-26T03:55:10.000Z
+scope: color
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "index.html, styles.css"
+```
+
+The final arrival headline uses a subtle orange marker highlight behind the alarm-ending phrase.
+
+## 2026-08-26T04:09:07.000Z — journey-scroll-motion-shows-exactly-one-
+
+```omd-meta
+id: pref_mt9kr1h9_05c81f9a
+timestamp: 2026-08-26T04:09:07.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "script.js, styles.css"
+```
+
+Journey scroll motion shows exactly one panel at a time, fully exiting the current panel before the next panel appears.
+
+## 2026-08-26T04:12:18.000Z — journey-panels-transition-in-place-with-
+
+```omd-meta
+id: pref_mt9kv56l_f3c65128
+timestamp: 2026-08-26T04:12:18.000Z
+scope: motion
+signal: user-correction
+confidence: explicit
+status: pending
+source_agent: codex
+source_context: "script.js, styles.css"
+```
+
+Journey panels transition in place with sequential fade-out and fade-in, without vertical movement.
