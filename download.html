@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RingOut 다운로드</title>
+    <link rel="stylesheet" href="/styles.css?v=20260922">
     <script>
       const userAgent = navigator.userAgent || "";
       const isAndroid = /Android/i.test(userAgent);
@@ -11,16 +12,23 @@
         (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
       const destination = isAndroid
-        ? "https://play.google.com/store/apps/details?id=com.joon.ringout&referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch"
+        ? "intent://details?id=com.joon.ringout&referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch#Intent;scheme=market;package=com.android.vending;end"
         : isIOS
           ? "https://apps.apple.com/app/apple-store/id6801441994?pt=129294547&ct=landing_page&mt=8"
           : "/#download";
 
       window.location.replace(destination);
     </script>
-    <noscript><meta http-equiv="refresh" content="0;url=/#download"></noscript>
   </head>
   <body>
-    <p>이동하지 않으면 <a href="/#download">다운로드 페이지</a>에서 스토어를 선택해 주세요.</p>
+    <main style="max-width: 32rem; margin: 15vh auto; padding: 0 24px; text-align: center;">
+      <h1>RingOut 다운로드</h1>
+      <p>스토어가 열리지 않으면 아래 버튼을 눌러 주세요.</p>
+      <div class="store-actions">
+        <a class="store-button button-dark" href="intent://details?id=com.joon.ringout&amp;referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch#Intent;scheme=market;package=com.android.vending;end">Google Play 앱에서 열기</a>
+        <a class="store-button store-button-secondary" href="https://apps.apple.com/app/apple-store/id6801441994?pt=129294547&amp;ct=landing_page&amp;mt=8">App Store에서 열기</a>
+      </div>
+      <p><a href="https://play.google.com/store/apps/details?id=com.joon.ringout&amp;referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch"><u>Google Play 웹에서 보기</u></a></p>
+    </main>
   </body>
 </html>
