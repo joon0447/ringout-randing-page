@@ -120,6 +120,50 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+const technologyTabs = document.querySelector("[data-technology-tabs]");
+if (technologyTabs) {
+  const tabList = technologyTabs.querySelector(".technology-tab-list");
+  const tabs = [...tabList.querySelectorAll("button")];
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+  if (panels.every(Boolean)) {
+    tabList.setAttribute("role", "tablist");
+    tabs.forEach((tab, index) => {
+      tab.setAttribute("role", "tab");
+      panels[index].setAttribute("role", "tabpanel");
+      panels[index].setAttribute("aria-labelledby", tab.id);
+      panels[index].setAttribute("tabindex", "0");
+    });
+
+    const selectTechnologyTab = (selectedIndex, focus = false) => {
+      tabs.forEach((tab, index) => {
+        const selected = index === selectedIndex;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[index].hidden = !selected;
+      });
+      if (focus) tabs[selectedIndex].focus();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTechnologyTab(index));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        selectTechnologyTab(nextIndex, true);
+      });
+    });
+
+    selectTechnologyTab(0);
+    tabList.hidden = false;
+  }
+}
+
 const storeClickEventNames = {
   app_store: "app_store_click",
   google_play: "google_play_click",

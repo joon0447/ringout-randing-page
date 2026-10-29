@@ -35,7 +35,7 @@
     <link rel="preload" as="image" href="assets/ringout-mockup-alarm-setting.png" />
     <link rel="preload" as="image" href="assets/ringout-mockup-destination-in-progress.png" />
     <link rel="preload" as="image" href="assets/ringout-destination.png" />
-    <link rel="stylesheet" href="styles.css?v=20260922" />
+    <link rel="stylesheet" href="styles.css?v=20261029" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EV0CKKLM3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -43,7 +43,7 @@
       gtag("js", new Date());
       gtag("config", "G-2EV0CKKLM3");
     </script>
-    <script src="script.js?v=20260922" defer></script>
+    <script src="script.js?v=20261029" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -57,8 +57,10 @@
         <nav class="nav-links" aria-label="페이지 메뉴">
           <a href="#why">왜 필요한가</a>
           <a href="#how">작동 방식</a>
+          <a href="#technology">기술 소개</a>
         </nav>
-        <div class="header-store-actions" aria-label="앱 설치 경로">
+        <div class="header-store-actions" aria-label="기술 소개 및 앱 설치">
+          <a class="header-tech-link" href="#technology">기술 소개</a>
           <a class="header-store-button header-store-button-app" href="https://apps.apple.com/app/apple-store/id6801441994?pt=129294547&amp;ct=landing_page&amp;mt=8" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 RingOut iOS 앱 받기(새 창)" data-store-click="app_store"><svg class="store-platform-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.6 2c.2 1.6-.5 3.1-1.5 4.1-.9.9-2.1 1.3-3.1 1.2-.1-1.4.5-2.8 1.4-3.8.9-.9 2.2-1.5 3.2-1.5ZM18.7 12.9c0-2 1.1-3.4 2.2-4.1-1-1.4-2.5-2-4-2-1.7 0-2.8 1-4.2 1-1.3 0-2.2-.9-3.7-.9-2.8 0-5 2.4-5 6 0 2.2.8 4.5 1.9 6.3 1 1.5 2 2.8 3.4 2.8 1.3 0 1.9-.8 3.5-.8s2 .8 3.5.8c1.5 0 2.5-1.5 3.4-2.9.7-1.1 1.1-2.1 1.3-2.8-1.4-.6-2.3-1.9-2.3-3.4Z" /></svg>App Store</a>
           <a class="header-store-button header-store-button-google" href="https://play.google.com/store/apps/details?id=com.joon.ringout&amp;referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 RingOut Android 앱 받기(새 창)" data-store-click="google_play"><svg class="store-platform-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#00a0ff" d="M3 2.4v19.2l10.4-9.6L3 2.4Z" /><path fill="#00d084" d="M3 2.4 17.1 10.4 13.4 12 3 2.4Z" /><path fill="#ff3d00" d="m17.1 10.4 3.9 1.6-3.9 1.6-3.7-1.6 3.7-1.6Z" /><path fill="#ffe000" d="M3 21.6 17.1 13.6 13.4 12 3 21.6Z" /></svg>Google Play</a>
         </div>
@@ -178,6 +180,35 @@
               <figcaption><h3>한 달의 기록을 한눈에 봐요.</h3><p>달력에 표시된 활동 날짜를 살펴보고,<br />지난날의 기록을 돌아봐요.</p></figcaption>
               <img src="assets/ringout-records-calendar.png" alt="알람 활동이 있는 날짜가 표시된 RingOut 월별 기록 달력 화면" width="1236" height="2853" loading="lazy" decoding="async" />
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="technology section-pad" id="technology" aria-labelledby="technology-title">
+        <div class="container-inner technology-inner">
+          <div class="groups-heading reveal">
+            <h2 id="technology-title">아침의 움직임을 돕는<br /><span>RingOut의 기술</span></h2>
+            <p class="groups-description">목표 지점에 도착하기까지, RingOut이 사용하는 기술을 소개해요.</p>
+          </div>
+          <div class="technology-tabs" data-technology-tabs>
+            <div class="technology-tab-list" aria-label="기술 소개 항목" hidden>
+              <button type="button" id="technology-tab-location" aria-controls="technology-panel-location">도착 판정</button>
+              <button type="button" id="technology-tab-alarm" aria-controls="technology-panel-alarm">알람 연동</button>
+            </div>
+            <div class="technology-panels">
+              <article class="technology-panel" id="technology-panel-location" aria-labelledby="technology-heading-location">
+                <p class="technology-label">위치 기반 도착 판정</p>
+                <h3 id="technology-heading-location">목적지에 도착해야<br />끝나는 알람</h3>
+                <p>설정한 위치까지 이동하면 RingOut이 도착을 확인하고 미션을 완료해요.</p>
+                <p class="technology-detail">GPS 위치의 정확도와 목적지까지의 거리를 확인해 도착 여부를 판단해요.</p>
+              </article>
+              <article class="technology-panel" id="technology-panel-alarm" aria-labelledby="technology-heading-alarm">
+                <p class="technology-label">운영체제 알람 연동</p>
+                <h3 id="technology-heading-alarm">휴대폰의 알람 기능과 함께</h3>
+                <p>설정한 시간에 미션을 시작할 수 있도록 각 운영체제의 알람 기능을 활용해요.</p>
+                <p class="technology-detail">알람 동작은 기기 설정과 권한의 영향을 받을 수 있어요.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
