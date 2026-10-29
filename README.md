@@ -12,6 +12,8 @@ python3 -m http.server 4173
 
 브라우저에서 `http://localhost:4173`을 열어 확인하세요.
 
+기기별 스토어 이동은 로컬에서 `http://localhost:4173/download.html`로 확인할 수 있습니다. 배포 환경에서는 `/download`를 사용합니다.
+
 ## Vercel 배포
 
 Vercel에서 이 폴더를 프로젝트 루트로 연결하면 됩니다. Framework Preset은 `Other`, Build Command는 비워 두고 Output Directory는 `.`으로 설정하세요.

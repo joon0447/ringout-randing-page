@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RingOut 다운로드</title>
+    <script>
+      const userAgent = navigator.userAgent || "";
+      const isAndroid = /Android/i.test(userAgent);
+      const isIOS = /iPhone|iPad|iPod/i.test(userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+      const destination = isAndroid
+        ? "https://play.google.com/store/apps/details?id=com.joon.ringout&referrer=utm_source%3Dlanding_page%26utm_medium%3Dwebsite%26utm_campaign%3Dringout_launch"
+        : isIOS
+          ? "https://apps.apple.com/app/apple-store/id6801441994?pt=129294547&ct=landing_page&mt=8"
+          : "/#download";
+
+      window.location.replace(destination);
+    </script>
+    <noscript><meta http-equiv="refresh" content="0;url=/#download"></noscript>
+  </head>
+  <body>
+    <p>이동하지 않으면 <a href="/#download">다운로드 페이지</a>에서 스토어를 선택해 주세요.</p>
+  </body>
+</html>
