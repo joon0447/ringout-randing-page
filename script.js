@@ -175,6 +175,12 @@ document.querySelectorAll("[data-store-click]").forEach((storeButton) => {
     if (eventName && typeof window.gtag === "function") {
       window.gtag("event", eventName);
     }
+    if (eventName && typeof window.posthog?.capture === "function") {
+      window.posthog.capture("store_button_clicked", {
+        store: storeButton.dataset.storeClick,
+        placement: storeButton.dataset.storePlacement,
+      });
+    }
   });
 });
 
